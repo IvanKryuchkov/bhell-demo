@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>弾幕 demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="legend">
+      <h3>Legend</h3>
+      <ul>
+        <li><div class="legendItem"><div class="player"></div><span> - Player</span></div></li>
+        <li><div class="legendItem"><div class="obstacle"></div><span> - Obstacle</span></div></li>
+        <li><div class="legendItem"><div class="obstacleMoving"></div><span> - Moving obstacle</span></div></li>
+        <li><div class="legendItem"><div class="healing"></div><span> - Healing (+1 Health)</span></div></li>
+        <li><div class="legendItem"><div class="slowBoost"></div><span> - Slow boost (lasts 5 seconds)</span></div></li>
+        <li><div class="legendItem"><div class="attackSpeedBoost"></div><span> - Attack speed boost (lasts 5 seconds)</span></div></li>
+      </ul>
+    </div>
+    <div class="logs"><h3>Logs</h3>
+    <div>
+      <span>Player:</span>
+      <div id="playerLogs"></div>
+    </div>
+    <div>
+      <span>Obstacles:</span>
+      <div id="obstacleLogs"></div>
+    </div>
+    </div>
+    <div class="panel">
+      <div class="timerContainer">
+        <span>⏳:</span>
+        <div id="gameTime"></div>
+      </div>
+      <div class="difficultyContainer">
+        <span>Difficulty:</span>
+        <div id="difficulty"></div>
+      </div>
+      <div class="healthContainer">
+        <span>HP:</span>
+        <div id="health"></div>
+      </div>
+      <div class="boostContainer">
+        <div class="slowBoostContainer">
+          <span>Boosts:</span>
+          <span>Slow-</span>
+          <div id="slowBoost">❌</div>
+        </div>
+        <div class="attackSpeedBoostContainer">
+          <span>Attack Speed-</span>
+          <div id="attackSpeedBoost">❌</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid" id="grid" onkeydown="keydownFn" onkeyup="keyupFn" onblur="onblurFn">
+      <div class="player" style="left: 250px; top: 250px"></div>
+      <div class="markupLine X"></div>
+      <div class="markupLine Y"></div>
+    </div>
+    <div id="infoBox" style="display: none;">Box</div>
+    <div class="rules">
+      <h3>Rules</h3>
+      <div>Try not to die as long as possible by dodging the obstacles and taking healing/boosts.</div>
+      <div>You can remove obstacles etc. on click.</div>
+      <h3>Controls</h3>
+      <ul>
+        <li><div class="controlsItem">W, A, S, D - move</div></li>
+        <li><div class="controlsItem">G - start</div></li>
+        <li><div class="controlsItem">R - reset after lose</div></li>
+        <li><div class="controlsItem">[Z - M] - spawn objects (dev mode)</div></li>
+      </ul>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+  <script src="./logs.js"></script>
+</html>

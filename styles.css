@@ -1,0 +1,169 @@
+:root {
+  --player-color: blue;
+  --obstacle-color: crimson;
+  --obstacle-moving-color: rgb(255, 48, 90);
+  --healing-color: greenyellow;
+  --slow-boost-color: orchid;
+  --attack-speed-boost-color: rgb(255, 106, 0);
+  --grid-width: 750px;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: rgb(34, 0, 48);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.legend, .rules {
+  position: absolute;
+  font-family: 'Share Tech', sans-serif;
+  font-size: 28px;
+  color: white;
+  top: 100px;
+}
+
+.legend {
+  left: 10px;
+}
+
+.legend ul {
+  padding-inline-start: 5px;
+  list-style-type: none;
+}
+
+.legendItem > span {
+  margin-left: 30px;
+}
+
+.rules {
+  right: 10px;
+  max-width: 350px;
+}
+
+.logs {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 32px;
+  color: white;
+  position: absolute;
+  top: 450px;
+  left: 10px;
+  width: 450px;
+  height: 450px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logs h3 {
+  margin: 8px 0;
+}
+
+.panel {
+  display: flex;
+}
+.panel > div {
+  margin: 0 20px;
+}
+.timerContainer,
+.difficultyContainer,
+.boostContainer,
+.slowBoostContainer,
+.attackSpeedBoostContainer,
+.healthContainer {
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  color: white;
+}
+.grid {
+  position: relative;
+  width: var(--grid-width);
+  height: var(--grid-width);
+  background-color: rgb(69, 0, 97);
+}
+
+#infoBox {
+  position: fixed;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  border: 1px solid blue;
+}
+
+.markupLine {
+  position: relative;
+  background-color: #515151;
+}
+
+.markupLine.X {
+  width: var(--grid-width);
+  height: 1px;
+  top: calc(var(--grid-width) / 2);
+}
+
+.markupLine.Y {
+  width: 1px;
+  height: var(--grid-width);
+  left: calc(var(--grid-width) / 2);
+}
+
+.figure,
+.player,
+.obstacle,
+.obstacleMoving,
+.healing,
+.slowBoost,
+.attackSpeedBoost,
+.attackProjectile {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+.player {
+  /* position: relative; */
+  background-color: var(--player-color);
+}
+.obstacle {
+  background-color: var(--obstacle-color);
+}
+.obstacleMoving {
+  background-color: var(--obstacle-moving-color);
+}
+.healing {
+  background-color: var(--healing-color);
+}
+.attackProjectile {
+  background-color: #3c299e;
+}
+@keyframes slowBoostAnimate {
+  from {background-color: var(--slow-boost-color);}
+  to {background-color: rgb(30, 15, 30);}
+}
+.slowBoost {
+  background-color: var(--slow-boost-color);
+  animation-name: slowBoostAnimate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes attackSpeedBoostAnimate {
+  from {background-color: var(--attack-speed-boost-color);}
+  to {background-color: rgba(255, 157, 0, 0.338);}
+}
+.attackSpeedBoost {
+  background-color: var(--attack-speed-boost-color);
+  animation-name: attackSpeedBoostAnimate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+.enemy {
+  text-align: center;
+  color: white;
+  font-family: system-ui;
+  z-index: 10;
+}
