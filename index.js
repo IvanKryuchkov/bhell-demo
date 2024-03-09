@@ -11,6 +11,7 @@ const BOOSTS_MAP = {
 };
 const ATTACK_PROJECTILE_W = FIGURE_WIDTH;
 const GRID_WIDTH = 750;
+const OVERLAY_WIDTH = GRID_WIDTH;
 const PLAYER_MOVESPEED = 6;
 const ATTACK_PROJECTILE_MS = 10;
 const MOVING_OBSTACLE_MS = 6;
@@ -68,6 +69,9 @@ const START_POSITION_MAP = (fixedRange = null, range = GRID_WIDTH - FIGURE_WIDTH
 const grid = document.querySelector(".grid");
 grid.style.width = px(GRID_WIDTH);
 grid.style.height = px(GRID_WIDTH);
+const overlay = document.querySelector(".overlay");
+grid.style.width = px(OVERLAY_WIDTH);
+grid.style.height = px(OVERLAY_WIDTH);
 const player = document.querySelector(".grid .player");
 player.style.width = px(PLAYER_WIDTH);
 player.style.height = px(PLAYER_WIDTH);
@@ -737,15 +741,20 @@ KeyboardController({
   "M": () => { movingToDestinationObstacle.create(); },
 }, 20);
 
+const startGame = () => {
+  game.start();
+  overlay.style.display = "none";
+}
+
 addEventListener("keydown", function(event) {
   const keyPressed = event.code.replace("Key", "");
   if (keyPressed === "G") {
-    !game.isGameOver && !game.hasStarted && game.start();
+    !game.isGameOver && !game.hasStarted && startGame();
   }
   if (keyPressed === "P") {
     game.pause();
   }
   if (keyPressed === "R") {
-    game.isGameOver && game.start();
+    game.isGameOver && startGame();
   }
 });
