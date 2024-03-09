@@ -494,7 +494,6 @@ const spreyPattern = {
     let spawnsLeft = 25;
     const spawnTimer = setInterval(() => {
       if (spawnsLeft === 0) {
-        console.log("stop spawn");
         clearInterval(spawnTimer);
       } else {
         spawnsLeft-=1;
