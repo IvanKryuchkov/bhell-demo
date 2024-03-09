@@ -47,6 +47,7 @@ body {
 }
 
 .logs {
+  display: none;
   font-family: 'Share Tech', sans-serif;
   font-size: 32px;
   color: white;

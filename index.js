@@ -757,4 +757,7 @@ addEventListener("keydown", function(event) {
   if (keyPressed === "R") {
     game.isGameOver && startGame();
   }
+  if (keyPressed === "L") {
+    showLogs();
+  }
 });
