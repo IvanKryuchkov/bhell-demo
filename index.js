@@ -253,8 +253,9 @@ const game = {
     const newEnemy = enemy.create();
     gameTimer = setInterval(()=>{
       const millisecondsPassed = new Date() - game.startTime;
-      const secondsPassed = ((millisecondsPassed % 60000) / 1000).toFixed(0);
-      updateGameTime(secondsPassed);
+      const s = Math.floor((millisecondsPassed / 1000) % 60);
+      const m = Math.floor(millisecondsPassed / 1000 / 60);
+      updateGameTime(`${m}m${s}s`);
       const enemyCurrentHealth = Number(newEnemy.getAttribute("data-health"));
       const isGameOver = checkGameOver(game.health);
       if (isGameOver) {
